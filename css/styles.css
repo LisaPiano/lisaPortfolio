@@ -8,18 +8,27 @@
 body {
     background-color: #000000;
     font-family: 'Titillium Web', sans-serif;
+    text-align: center;
 }
+
+.navbar {
+    border: 3px solid white;
+    width: 100vw;
+    height: 50px;
+    margin-top: 5px;
+    z-index: 100;
+    }
 
 /* ==================================================================
 Animations
 =================================================================== */
 
-.animate1 {
+.hi {
     background-color: black;
     font-size: 16px;
     color: white;
     position: relative;
-    animation-name: fall1;
+    animation-name: hi;
     animation-duration: 4s;
     animation-timing-function: cubic-bezier(0.1, 0.7, 1. 0.1);
     animation-fill-mode: forwards;
@@ -27,49 +36,73 @@ Animations
     padding-right: 30px;
 }
 
-@keyframes fall1 {
+@keyframes hi {
    
     0% {top: 0px; font-size: 16px; z-index: 100; background-color: black;}
     70% {top: 300px; color: white; font-size: 100px;}   
-    100% {color: black; z-index: -1; background-color: light-tan;}
+    100% {top: 10px; visibility: hidden; z-index: -1;}
 }
 
-.animate2 {
+.lisa {
     font-size: 16px;
     z-index: -1;
     position: relative;
     top: 1000px;
     animation-duration: 1s;
-    animation-name: appear;
+    animation-name: lisa;
     animation-timing-function: ease-out;
     animation-delay: 3s;
     animation-fill-mode: forwards;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
-@keyframes appear {
-   
+@keyframes lisa {
     0% {top: 500px; display: none;}
     10% {z-index: 100;}
-    100% {top: 300px; color: white; font-size: 50px;}   
+    100% {top: 5px; color: white; font-size: 50px;}   
 }
 
 header {
     visibility: hidden;
     font-size: 16px;
     animation-duration: 1s;
-    animation-name: magic;
+    animation-name: header;
     animation-delay: 3s;
     position: relative;
     top: 0;
     animation-fill-mode: forwards;
 }
 
-@keyframes magic {
-    0% {visibility: hidden; color: black;}
-    100% {visibility: visible; color: white;}   
+@keyframes header {
+    0% {visibility: hidden; color: black;}   
+    100% {visibility: visible; color: white;}
 }
+
+
+.portfolioPic {
+    height: 400px;
+    width: 400px;
+    max-width: 100%;
+    background-image: url("img/LisaPortfolioPic2.jpg");
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    border-radius: 7px;
+    /* animation-name: end;
+    animation-delay: 5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; */
+
+}
+
+/* @keyframes end {
+    0% {visibility: hidden;}
+    100% {visibility: visible;}
+} */ 
 
 /* ==================================================================
 Animations
 =================================================================== */
+
