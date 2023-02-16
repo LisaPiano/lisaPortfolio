@@ -5,24 +5,95 @@
     margin: 0;
 }
 
+
+/* Style the Navbar================================================================================== */
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-image: url("../img/light.webp"); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+  
+
+div.container {
+  background-color: #2E383A;
+}
+
+.navbar-dark, .navbar-nav, .nav-link {
+  width: 50%;
+  font: 20px;
+  color: rgba(255, 255, 255, 1);
+
+}
+
+.description {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+p {
+  color: white;
+}
+
+
+  /* End of Navbar======================================================================= */
+
+/* Transition from color to image in the body */
+
 body {
     background-color: #000000;
     font-family: 'Titillium Web', sans-serif;
     text-align: center;
+}
+
+.opening {
+    background-color: #000000;
     animation-name: backdrop;
+    animation-delay: 8s;
     animation-duration: 8s;
     animation-fill-mode: forwards;
 }
 
 @keyframes backdrop {
-    0% {color: #000000;}
-    50% {color: gray;}
-    100% {background-image: url("img/light.webp"); background-repeat: no-repeat; background-size: cover;}
+    0% {background-color: #000000;}
+    100% {background-color: black;}
+  
 }  
 
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-NAVBAR
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
 /* ==================================================================
@@ -52,10 +123,10 @@ Animations
 
 .lisa {
     font-size: 16px;
-    z-index: -1;
+    z-index: 1;
     position: relative;
     top: 1000px;
-    animation-duration: 1s;
+    animation-duration: 8s;
     animation-name: lisa;
     animation-timing-function: ease-out;
     animation-delay: 3s;
@@ -63,6 +134,7 @@ Animations
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 50px;
+    height: 25px;
 }
 
 
@@ -73,60 +145,83 @@ Animations
 }
 
 
-.portfolioPic {
-    height: 0px;
-    width: 0px;
-    max-width: 100%;
-    background-image: url("img/LisaPortfolioPic2.jpg");
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    margin-top: 30px;
-    border-radius: 50%;
-    animation-name: picture;
-    animation-delay: 6s;
-    animation-duration: 4s;
-    animation-fill-mode: forwards; 
 
+.next {
+   visibility: hidden;
+    position: relative;
+    animation-name: end;
+    animation-delay: 7s;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    background-image: url("../img/light.webp"); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100%;
+    height: 100%; 
+    z-index: 20;
+    text-align: center;
 }
 
-@keyframes picture {
-    0% {height: 0px; width: 0px;}
-    100% {height: 140px; width: 140px;}
-}  
 
-.next >* {
-    visibility: hidden;
-    animation-name: end;
-    animation-delay: 6s;
-    animation-duration: 10s;
-    animation-fill-mode: forwards;
-    background-image: url("img/light.jpg"); background-repeat: no-repeat; background-size: cover;
+.description {
+    margin-top: 40px;
 }
 
 @keyframes end {
-    0% {visibility: hidden;} 
-    100% {visibility: visible;}
+    0% {visibility: hidden; top: 500px;} 
+    
+    100% {visibility: visible; top: 120px;}
 }  
 
-
-
-/* ==================================================================
-Animations
-=================================================================== */
-
-div.container {
-    background-color: #2E383A;
+.section {
+  width: 100%;
+  padding-top: 40px;
+}
+.abouttext {
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-.nav-item {
-    font: 20px;
+.about {
+  width: 100%;
 }
 
-p {
-    color: white;
-} 
+.pic {
+  background-image: url("../img/lisapictureResized.jpg"); 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  height: 300px;
+  width: 300px;
+  margin-top: 50px;
+ margin: auto;
+  border-radius: 50%;
 
-.white {
-    color: white;
 
 }
+
+/* ==================Media Queries================================================================= */
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
