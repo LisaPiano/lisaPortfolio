@@ -126,7 +126,7 @@ Animations
     z-index: 1;
     position: relative;
     top: 1000px;
-    animation-duration: 8s;
+    animation-duration: 5s;
     animation-name: lisa;
     animation-timing-function: ease-out;
     animation-delay: 3s;
@@ -170,7 +170,7 @@ Animations
 @keyframes end {
     0% {visibility: hidden; top: 500px;} 
     
-    100% {visibility: visible; top: 120px;}
+    100% {visibility: visible; top: 220px;}
 }  
 
 .section {
@@ -224,4 +224,18 @@ Animations
       display: block;
       text-align: left;
     }
+  }
+
+  @media screen and (min-width: 600px) {
+    @keyframes end {
+      100% {visibility: visible; top: 180px;}
+  }  
+  
+  }
+
+  @media screen and (min-width: 994px) {
+    @keyframes end {
+      100% {visibility: visible; top: 140px;}
+  }  
+  
   }
