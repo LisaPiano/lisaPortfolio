@@ -9,6 +9,20 @@
 /* Style the Navbar================================================================================== */
 
 
+
+
+ /* In larger sizes, the .topnav and the #myTopnav should display */
+
+ .topnav, #myTopnav {
+  display: block;
+  }
+
+  .myTopnavalt, #myTopnavalt {
+    display: none;
+  }
+
+
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -61,6 +75,7 @@ div.container {
 
 }
 
+
 .description {
   margin-top: 40px;
   display: inline-block;
@@ -72,6 +87,75 @@ p {
 
 
   /* End of Navbar======================================================================= */
+
+  /* Style the ALTERNATIVE Navbar================================================================================== */
+
+
+
+/* Add a black background color to the top navigation */
+.myTopnavalt {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 40;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .myTopnavalt a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .myTopnavalt a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .myTopnavalt a.active {
+    background-image: url("../img/light.webp"); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .myTopnavalt .icon {
+    display: none;
+  }
+
+  
+
+div.container {
+  background-color: #2E383A;
+}
+
+.navbar-dark, .navbar-nav, .nav-link {
+  width: 50%;
+  font: 20px;
+  color: rgba(255, 255, 255, 1);
+
+}
+
+
+.description {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+p {
+  color: white;
+}
+
+
+  /* End of ALTERNATIVE Navbar======================================================================= */
 
 /* Transition from color to image in the body */
 
@@ -109,7 +193,7 @@ Animations
     color: white;
     position: relative;
     animation-name: hi;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-timing-function: cubic-bezier(0.1, 0.7, 1. 0.1);
     animation-fill-mode: forwards;
     padding-left: 30px;
@@ -123,18 +207,19 @@ Animations
     100% {top: 10px; visibility: hidden; z-index: -1;}
 }
 
-.lisa p {
-    font-size: 8px;
+.lisa {
+    font-size: 12px;
     z-index: 1;
     position: relative;
     top: 1000px;
     animation-duration: 2s;
     animation-name: lisa;
     animation-timing-function: ease-out;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 30px;
     margin: 0 auto;
     width: 100%;
     height: 25px;
@@ -142,9 +227,10 @@ Animations
 
 
 @keyframes lisa {
-    0% {top: 500px; display: none; font-size: 16px;}
-    10% {z-index: 100;}
-    100% {top: 5px; color: white; font-size: 50px;}   
+    0% {top: 500px; display: none; font-size: 12px;}
+    10% {z-index: 100; font-size: 12px;}
+    90% {z-index: 100; font-size: 25px;}
+    100% {top: 15px; color: white; font-size: 35px;}   
 }
 
 
@@ -207,30 +293,79 @@ Animations
 
 /* ==================Media Queries================================================================= */
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-  
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-  @media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
+
+
+ /* In smaller sizes, the .myTopnavalt and the #myTopnavalt should display */
+ @media screen and (max-width: 600px) {
+
+
+ .topnav, #myTopnav {
+  display: none;
   }
 
+  .myTopnavalt, #myTopnavalt {
+    display: block;
+  }
+}
+
+
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .myTopnavalt a:not(:first-child) {display: none;}
+  .myTopnavalt a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .myTopnavalt.responsive {position: relative;}
+  .myTopnavalt.responsive.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .myTopnavalt.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+/* =========================================================================================================================== */
   @media screen and (min-width: 600px) {
     @keyframes end {
       0% {visibility: hidden; top: 500px;} 
